@@ -8,11 +8,21 @@
   (flare/GET *base-url* route))
 
 (defn legislators
-  [{:keys [birthday
+  [{:keys [bioguide-id
+           birthday
            chamber
+           crp-id
            district
            in-office
+           fec-ids
+           first-name
            gender
+           govtrack-id
+           last-name
+           lis-id
+           middle-name
+           name-suffix
+           nickname
            party
            per-page
            query
@@ -22,7 +32,9 @@
            state-rank
            term-start
            term-end
-           title] :as fields}]
+           thomas-id
+           title
+           votesmart-id] :as fields}]
   (if query
     (GET (str "/legislators?query=" query))
     (GET (str "/legislators?" (flare/parameterize-fields fields)))))
